@@ -1,0 +1,25 @@
+version: '3'
+services:
+  flinkapp:
+    build:
+      context: app-flink-base
+      dockerfile: Dockerfile
+    volumes:
+      - ./${DATA_DIR}:/opt/flink/${DATA_DIR}
+      - ./target:/opt/flink/app/target/
+    container_name: app-flink-${APP_PACKAGE}.${APP_MAIN}
+    external_links:
+      - "jobmanager:jobmanager"
+    environment:
+      JOB_MANAGER_RPC_ADDRESS: ${JOB_MANAGER_RPC_ADDRESS}
+      JOB_MANAGER_RPC_PORT: ${JOB_MANAGER_RPC_PORT}
+      DATA_DIR : ${DATA_DIR}
+      APP_PACKAGE : ${APP_PACKAGE}
+      APP_MAIN : ${APP_MAIN}
+      APP_ARGS: ${APP_ARGS}
+      APP_JAR_NAME: ${APP_JAR_NAME}
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_NAME}
