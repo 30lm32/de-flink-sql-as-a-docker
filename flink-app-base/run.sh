@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Printing environment variables
 print_env_variables()
 {
     echo "------------------------------------"
@@ -22,10 +23,6 @@ APP_MAIN_CLASS=${APP_PACKAGE}.${APP_MAIN}
 print_env_variables
 
 #https://ci.apache.org/projects/flink/flink-docs-stable/ops/cli.html
-
-#chown -R root:root target/
-
-#ls -l
 
 if [ -z ${APP_ARGS} ]
 then

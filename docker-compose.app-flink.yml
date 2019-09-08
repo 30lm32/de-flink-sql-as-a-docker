@@ -2,12 +2,12 @@ version: '3'
 services:
   flinkapp:
     build:
-      context: app-flink-base
+      context: flink-app-base
       dockerfile: Dockerfile
     volumes:
       - ./${DATA_DIR}:/opt/flink/${DATA_DIR}
       - ./target:/opt/flink/app/target/
-    container_name: app-flink-${APP_PACKAGE}.${APP_MAIN}
+    container_name: flink-app-${APP_PACKAGE}.${APP_MAIN}
     external_links:
       - "jobmanager:jobmanager"
     environment:
