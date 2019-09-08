@@ -7,7 +7,7 @@ Flink Application consists of one docker container that already using a dockerfi
 # Problems
 
 Please, note that we used `Apache's Flink Table APIs` to write the queries on `DataSet` rather than using `Apache's Flink DateSet APIs`.
-
+The results of the queries will be dumbing into `./data/output` as q1, q2, q3, q4, q5, respectively. 
 ### Requirements
 Please, note that you need to install compatible `docker` and `docker-compose` version before using the service.
 You could see the version of `docker` and `docker-compose`, below.
@@ -53,7 +53,7 @@ You could see the version of `docker` and `docker-compose`, below.
 
 ## Usage
 
-1. Please, note that add your CSV file (**fashion-mnist_train.csv**, **case.csv**) under `data/input` directory.
+1. Please, note that add your CSV file (**case.csv**) under `data/input` directory.
 2. You will find `makefile` to kick off the platform. It has three different commands to build, start, and stop platform.
 
 * To build platform
