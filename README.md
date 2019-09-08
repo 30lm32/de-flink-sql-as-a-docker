@@ -4,10 +4,10 @@ In this case, we used docker container technologies to launch Flink cluster and 
 Flink Cluster (Platform) consists of two different docker containers (jobmanager, taskmanager) that are already built in `docker-compose.flink.yml`.
 Flink Application consists of one docker container that already using a dockerfile (`./app-flink-base/Dockerfile`) and a shell script (`./app-flink-base/run.sh`) to submit jar file to cluster in `docker-compose-app-flink.yml`.
 
-# Problems
-
-Please, note that we used `Apache's Flink Table APIs` to write the queries on `DataSet` rather than using `Apache's Flink DateSet APIs`.
+# Problem
+Please, note that we used [`Apache Flink Table & SQL APIs`](https://ci.apache.org/projects/flink/flink-docs-stable/dev/table/) to write the queries on `DataSet` rather than using [`Apache Flink DataSet APIs`](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/batch/) .
 The results of the queries will be dumbing into `./data/output` as q1, q2, q3, q4, q5, respectively. 
+
 ### Requirements
 Please, note that you need to install compatible `docker` and `docker-compose` version before using the service.
 You could see the version of `docker` and `docker-compose`, below.
@@ -50,10 +50,22 @@ You could see the version of `docker` and `docker-compose`, below.
     This is free software: you are free to change and redistribute it.
     There is NO WARRANTY, to the extent permitted by law.
 
+#### Apache Flink Version
+        1.9.0
+        
+#### Java Version
+
+       1.8.0
+       
+#### Scala Version
+
+        2.11
+
+You may look at pom.xml, docker-compose and docker files to get the further information about versioning of libs.
 
 ## Usage
 
-1. Please, note that add your CSV file (**case.csv**) under `data/input` directory.
+1. Please, note that add your CSV file (**case.csv**) under `./data/input` directory.
 2. You will find `makefile` to kick off the platform. It has three different commands to build, start, and stop platform.
 
 * To build platform
