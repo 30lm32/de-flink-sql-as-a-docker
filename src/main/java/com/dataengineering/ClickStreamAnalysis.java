@@ -14,6 +14,7 @@ import org.apache.flink.table.sinks.TableSink;
 public class ClickStreamAnalysis {
 
     private static final String FORMAT_OF_FILE_PATH = "%s/%s/%s";
+    private static final String FORMAT_OF_EXECUTION_NAME = "SQL Batches: %s";
 
     private static final String NAME_OF_DATASET = "ClickStream";
     private static final String FIELD_DELIM = "|";
@@ -98,7 +99,7 @@ public class ClickStreamAnalysis {
                 "q3"
         );
 
-        JobExecutionResult res = env.execute("SQL Batches");
+        JobExecutionResult res = env.execute(String.format(FORMAT_OF_EXECUTION_NAME, ClickStreamAnalysis.class.getCanonicalName()));
     }
 
     private static void createQueryExecutionPlan(String dataDir,
