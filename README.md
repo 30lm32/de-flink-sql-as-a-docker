@@ -82,17 +82,22 @@ You may look at pom.xml, docker-compose and docker files to get the further info
         
 3. Start Apache Flink app.
 
-* To build platform
+* To build application as a container
 
         make build_app
     
-* To start platform
+* To start application
 
         make up_app
     
-* To stop platform
+* To stop application
 
         make down_app
+
+* To build application without container (for development)
+
+        make mvn_test
+        make mvn_package
 
 
 # Docker Services
