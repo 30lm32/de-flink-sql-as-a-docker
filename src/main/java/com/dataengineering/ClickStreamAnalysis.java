@@ -109,7 +109,7 @@ public class ClickStreamAnalysis {
                                                  TypeInformation[] outFieldTypes,
                                                  String tableSinkName) {
 
-        String outputFileName = String.format(FORMAT_OF_FILE_PATH, dataDir, "output", tableSinkName);
+        String outputFileName = String.format(FORMAT_OF_FILE_PATH, dataDir, "output_v1", tableSinkName);
 
         Table table = tEnv.sqlQuery(query);
         TableSink csvSink = new CsvTableSink(outputFileName,
