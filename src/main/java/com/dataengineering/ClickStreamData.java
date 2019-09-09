@@ -51,4 +51,18 @@ public class ClickStreamData {
 					", userId=" + userId +
 					'}';
 		}
+
+		public static ClickStreamData of(Long date,
+                                         Long productId,
+                                         String eventName,
+										 Long userId) {
+
+			ClickStreamData data = new ClickStreamData();
+			data.setDate(date);
+			data.setProductId(productId);
+			data.setEventName(eventName);
+			data.setUserId(userId);
+
+			return data;
+		}
 	}

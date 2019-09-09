@@ -11,6 +11,8 @@ down_platform:
 ps_platform:
 	./dcompose.sh ps ${PLATFORM_DOCKER_COMPOSE_FILE} platform
 
+mvn_test:
+	mvn test
 mvn_package:
 	mvn clean package
 build_app: mvn_package
