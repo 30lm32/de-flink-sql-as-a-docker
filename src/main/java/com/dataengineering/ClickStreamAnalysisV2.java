@@ -1,7 +1,6 @@
 package com.dataengineering;
 
 import org.apache.flink.api.common.JobExecutionResult;
-import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.common.typeinfo.Types;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
@@ -104,15 +103,6 @@ public class ClickStreamAnalysisV2 {
     public static DataSet<Tuple1<Long>> executeQ5(BatchTableEnvironment tEnv) {
         Table table = tEnv.sqlQuery("SELECT count(*) AS countProductView FROM ClickStream WHERE eventName = 'view' GROUP BY productId");
         TupleTypeInfo<Tuple1<Long>> tupleTypeInfo = new TupleTypeInfo<>(Types.LONG);
-        return tEnv.toDataSet(table, tupleTypeInfo);
-    }
-
-    private static DataSet<?> createQueryExecutionPlan(BatchTableEnvironment tEnv,
-                                                       String query,
-                                                       TypeInformation[] outFieldTypes) {
-
-        Table table = tEnv.sqlQuery(query);
-        TupleTypeInfo<?> tupleTypeInfo = new TupleTypeInfo<>(outFieldTypes);
         return tEnv.toDataSet(table, tupleTypeInfo);
     }
 
